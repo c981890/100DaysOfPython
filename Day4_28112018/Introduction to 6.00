@@ -1,0 +1,25 @@
+https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/index.htm
+
+https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/unit-1/lecture-1-introduction-to-6.00/
+
+Check Yourself
+What is the difference between declarative and imperative knowledge?
+Declarative knowledge is composed of statements of fact.
+Imperative knowledge is about how to accomplish something.
+Think of it as recipe.
+
+
+What is the advantage of a stored-program computer?
+Treat data and instructions as the same thing.
+
+
+What are the syntax, static semantics, and semantics of a language?
+Syntax: which sequences of characters and symbols constitute a well-formed
+        string.
+Static semantics: which well-formed strings have a meaning.
+Semantics: what that meaning is.
+
+What sorts of errors can occur in a program?
+Crash
+Never stop - Infinite loop
+Run to completion and produce wrong answer
