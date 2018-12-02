@@ -8,7 +8,7 @@ name_for_userid = {
     }
 
 def greeting(userid):
-    return "Hi %s!" % name_for_userid.get(userid, "there")
+    return "Hi, %s!" % name_for_userid.get(userid, "there")
 
 print(greeting(382))
 print(greeting(3333))
