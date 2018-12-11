@@ -1,3 +1,6 @@
+"""Public docstring."""
+
+
 def break_words(stuff):
     """Break up words for us."""
     words = stuff.split(" ")
