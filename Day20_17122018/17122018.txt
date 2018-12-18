@@ -1,0 +1,2 @@
+https://realpython.com/must-watch-pycon-talks/
+https://towardsdatascience.com/jupyter-notebooks-made-me-a-lazy-programmer-bef237c310bf
