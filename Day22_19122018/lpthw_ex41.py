@@ -66,7 +66,7 @@ def convert(snippet, phrase):
 # keep going until they hit CTRL-D
 try:
     while True:
-        snippets = PHRASES.keys()
+        snippets = list(PHRASES.keys())
         random.shuffle(snippets)
 
         for snippet in snippets:
