@@ -33,6 +33,7 @@ for word in urlopen(WORD_URL).readlines():
 
 
 def convert(snippet, phrase):
+    """Docstring."""
     class_names = [w.capitalize() for w in
                    random.sample(WORDS, snippet.count("%%%"))]
     other_names = random.sample(WORDS, snippet.count("***"))
