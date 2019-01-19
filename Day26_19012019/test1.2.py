@@ -7,6 +7,6 @@ def fun(jar, i, j):
 
 jarjend = [[1, 3, 4], [2, -5, 7]]
 
-print(fun(jarjend, 0, 0), end = ' ')
-print(fun(jarjend, 2, 0), end = ' ')
+print(fun(jarjend, 0, 0), end=' ')
+print(fun(jarjend, 2, 0), end=' ')
 print(fun(jarjend, 0, 3))
