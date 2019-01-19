@@ -11,6 +11,13 @@ def voitis_nurkademangu(maatriks):
     return i == 4
 
 
+def voitis_nurkademangu_2(tabel):
+    for i in range(len(tabel)):
+        for j in range(len(tabel[i])):
+            if (i == 0 or i == len(tabel)-1) and (j == 0 or j == len(tabel[i])-1):
+                print(tabel[i][j])
+
+
 def x_peadiagonaalil(maatriks):
     x = 0
     for i in range(len(maatriks)):

@@ -40,7 +40,7 @@ for rida in fail:  # iga rea jaoks failist
     maatriks.append(arvud)
 fail.close()
 
-print(maatriks)
-print(kastid_korras(maatriks))
-print(read_korras(maatriks))
-print(veerud_korras(maatriks))
+if kastid_korras(maatriks) and read_korras(maatriks) and veerud_korras(maatriks):
+    print('OK')
+else:
+    print('VIGA')
