@@ -16,21 +16,28 @@ def kooslubajad(hulk):
                         set()])
        (0, 2)
     """
-    suurimad = {0, 0}
+    suurus = 0
+    suurimad = [0, 0]
     for i in range(len(hulk)):
         for j in range(i + 1, len(hulk)):
-            if (hulk[i] & hulk[j]) > suurimad:
-                suurimad = (hulk[i], hulk[j])
+            if (len(hulk[i] & hulk[j])) >= suurus:
+                suurus = len(hulk[i] & hulk[j])
+                suurimad[0] = i
+                suurimad[1] = j
 
-    return suurimad
+    return tuple(suurimad)
 
 
-print(kooslubajad([{"maamaks kaotada",
-                    "pensione tõsta",
-                    "kaitsekulutusi tõsta"},
-                   {"lasteaiaõpetajate palku tõsta",
-                    "kindlustada tasuta hambaravi kuni 30-aastastele"},
-                   {"sisserännet piirata",
-                    "pensione tõsta",
-                    "kaitsekulutusi tõsta"},
-                   set()]))
+print(kooslubajad([
+                   {'algatada koduloometoetus',
+                    'rajada spordiväljakud igasse linna',
+                    'suurendada kõiki palkasid',
+                    'kuritegevust vähendada',
+                    'kõiki toetusi suurendada',
+                    'kaotada kõik maksud'},
+                   {'toetada pensionäre',
+                    'vähendada suremust',
+                    'suurendada vastsündinute arvu',
+                    'edendada maaelu',
+                    'aidata noorperesid'}
+                  ]))
