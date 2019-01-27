@@ -1,0 +1,36 @@
+def kooslubajad(hulk):
+    """(set) -> tuple.
+
+       Võtab argumendiks järjendi erakondade lubaduste hulkadest ja tagastab
+       paarina (kaheelemendilise ennikuna) nende kahe erakonna indeksid
+       järjendis, mille lubadustel on kõige suurem ühisosa. Kui selliseid paare
+       on mitu, siis võib neist ükskõik millise tagastada.
+       >>> kooslubajad([{"maamaks kaotada",
+                         "pensione tõsta",
+                         "kaitsekulutusi tõsta"},
+                        {"lasteaiaõpetajate palku tõsta",
+                         "kindlustada tasuta hambaravi kuni 30-aastastele"},
+                        {"sisserännet piirata",
+                         "pensione tõsta",
+                         "kaitsekulutusi tõsta"},
+                        set()])
+       (0, 2)
+    """
+    suurimad = {0, 0}
+    for i in range(len(hulk)):
+        for j in range(i + 1, len(hulk)):
+            if (hulk[i] & hulk[j]) > suurimad:
+                suurimad = (hulk[i], hulk[j])
+
+    return suurimad
+
+
+print(kooslubajad([{"maamaks kaotada",
+                    "pensione tõsta",
+                    "kaitsekulutusi tõsta"},
+                   {"lasteaiaõpetajate palku tõsta",
+                    "kindlustada tasuta hambaravi kuni 30-aastastele"},
+                   {"sisserännet piirata",
+                    "pensione tõsta",
+                    "kaitsekulutusi tõsta"},
+                   set()]))
