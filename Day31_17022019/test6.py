@@ -49,7 +49,7 @@ print(printKuhu(5))
 def hanoi(arv, lähe, siht, ajutine):
     if arv > 0:
         hanoi(arv - 1, lähe, ajutine, siht)
-        print("Ketas liigutati platsilt " + str(lähe) + " platsile " + str(siht))
+        print("Ketas liigutati platsilt " + str(lähe) + " platsile " + str(siht))a
         hanoi(arv - 1, ajutine, siht, lähe)
 
 
