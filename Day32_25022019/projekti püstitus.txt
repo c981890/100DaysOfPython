@@ -1,0 +1,12 @@
+http://pub.stat.ee/px-web.2001/Dialog/varval.asp?ma=RV045&ti=OODATAV+ELUIGA+S%DCNNIMOMENDIL+JA+ELADA+J%C4%C4NUD+AASTAD+SOO+JA+VANUSE+J%C4RGI&path=../Database/Rahvastik/01Rahvastikunaitajad_ja_koosseis/02Demograafilised_pehinaitajad/&lang=2
+meeste oodatav eluiga.csv
+naiste oodatav eluiga.csv
+
+Küsida, et kas mees või naine
+Küsida vanust
+Näidata eluiga
+küsida, et mis aastal ta oleks olnud vanusega, et mis siis oleks olnud oodatav eluiga
+
+Näidata graafikut, kus meeste ja naiste eluiga on näha graafikul
+
+20 pikima oodatava elueaga aastat
