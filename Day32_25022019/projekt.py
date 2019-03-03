@@ -1,45 +1,127 @@
+import pandas as pd
+import matplotlib.pyplot as plot
+
+
 def kysimused():
-    print("OODATAV ELUIGA")
+    jarjend = aastad("RV045s_mehed.csv")
+    print("")
+    print("")
+    print("  OODATAV ELUIGA")
     while (True):
-        print("Tee oma valik:")
-        print("[1] Teie oodatav eluiga")
-        print("[2] Milline oleks olnud teie oodatav eluiga olnud aastatel")
-        print("[3] Naiste ja meeste oodatav eluiga graafikul")
-        print("[q] Soovite lõpetada ja programmi sulgeda")
-        print("> ", end = '')
-        vastus = input()
-        kasud(vastus)
-        break
+        print("")
+        print("  Tee oma valik:")
+        print("  [1] Teie oodatav eluiga")
+        print("  [2] Milline oleks olnud teie oodatav eluiga olnud aastatel " +
+              jarjend[2] + " - " +
+              jarjend[-1])
+        print("  [3] Oodatav eluiga läbi aastate graafikul")
+        print("  [q] Soovite lõpetada ja programmi sulgeda")
+        vastus = input("  > ")
+        kas_lopp = kasud(vastus)
+        if kas_lopp == 'q':
+            break
 
 
 def kasud(vastus):
     for symbol in vastus:
         if vastus == 'q':
+            return 'q'
             break
         elif vastus == '1':
             oodatav_eluiga()
+        elif vastus == '2':
+            oodatav_eluiga_aastal()
+        elif vastus == '3':
+            graafik()
 
 
 def oodatav_eluiga():
-    print("Teie sugu:")
-    print("[n] Naine")
-    print("[m] Mees")
-    sugu = input("> ")
-    print("Teie vanus:")
-    vanus = input("> ")
-    sonastik_mehed = faili_sisselugemine("RV045 - RV045.csv")
-    print(sonastik_mehed[vanus][-1])
+    print("  Teie sugu:")
+    print("  [n] Naine")
+    print("  [m] Mees")
+    sugu = input("  > ")
+    print("  Teie vanus:")
+    vanus = input("  > ")
+    tabel = faili_sisselugemine(sugu)
+    print("  Oodatav elada jäänud aastate arv: ",
+          tabel.loc["Vanus " + str(vanus), "2017"])
 
 
-def faili_sisselugemine(failinimi):
+def oodatav_eluiga_aastal():
+    jarjend = aastad("RV045s_mehed.csv")
+    print("  Siin saad uurida, et kui sa oleksid oma tänase vanuseni jõudnud")
+    print("  aastatel " + jarjend[2] + " - " +
+          jarjend[-1] +
+          ", siis mis oleks sinu oodatav elada jäänud aastate arv.")
+    print("  Teie sugu:")
+    print("  [n] Naine")
+    print("  [m] Mees")
+    sugu = input("    > ")
+    print("  Teie vanus:")
+    vanus = input("  > ")
+    print("  Mis aastal oleksid oma tänase vanuseni jõudnud?")
+    aasta = input("  > ")
+    tabel = faili_sisselugemine(sugu)
+    print("  Oodatav elada jäänud aastate arv aastal " + aasta + ": ",
+          tabel.loc["Vanus " + vanus, str(aasta)])
+
+
+def graafik():
+    print("  Soovitav sugu:")
+    print("  [n] Naine")
+    print("  [m] Mees")
+    sugu = input("  > ")
+
+    if sugu == 'm':
+        sugu_kaandes = "mehe"
+    else:
+        sugu_kaandes = "naise"
+
+    print("  Soovitav vanus:")
+    vanus = input("  > ")
+
+    # jarjend = aastad("RV045s_mehed.csv")
+    tabel = faili_sisselugemine(sugu)
+    transponeeritud_andmed = tabel.T
+    plot.xlabel("Aastatel")
+    plot.ylabel("Oodatav aastate arv")
+    plot.title(vanus + " aastase " + sugu_kaandes +
+               " oodatav elada jäänud aastate arv")
+    # plot.xticks([1989, 1994, 1999, 2000, 2005, 2010, 2015, 2017],
+    #             ['1989', '1994', '1999', '2000', '2005', '2010', '2015', '2017'])
+    transponeeritud_andmed["Vanus " + str(vanus)].plot()
+    plot.show()
+
+
+def faili_sisselugemine(sugu):
+    if sugu == "m":
+        failinimi = "RV045s_mehed.csv"
+    elif sugu == "n":
+        failinimi = "RV045s_naised.csv"
+    andmed = pd.read_csv(failinimi, delimiter=';')
+    andmed = andmed.set_index(' ')
+    indexNamesArr = andmed.index.values
+
+    for i in range(len(indexNamesArr)):
+        indexNamesArr[i] = "Vanus " + str(i)
+
+    return andmed
+
+
+def aastad(failinimi):
     fail = open(failinimi, encoding="UTF-8")
-    sonastik = {}
-    next(fail)
-    for rida in fail:
-        osad = rida.strip('\n').split(',', 1)
-        sonastik[osad[0]] = osad[1]
-    fail.close()
-    return sonastik
+    rida = fail.readline()
+    jarjend = rida.strip('\n').strip('"').split(';')
+    jarjend = [element.strip('"') for element in jarjend]
+    return jarjend
+
+
+def viimane_aasta(failinimi):
+    fail = open(failinimi, encoding="UTF-8")
+    rida = fail.readline()
+    jarjend = rida.strip('\n').strip('"').split(';')
+    jarjend = [element.strip('"') for element in jarjend]
+    return str(jarjend[-1])
 
 
 kysimused()
