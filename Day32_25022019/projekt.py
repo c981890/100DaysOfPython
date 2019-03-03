@@ -3,6 +3,7 @@ import matplotlib.pyplot as plot
 
 
 def kysimused():
+    """Kasutajale kuvatakse valikmenüü programmi põhifunktsioonidega."""
     jarjend = aastad("RV045s_mehed.csv")
     print("")
     print("")
@@ -23,6 +24,9 @@ def kysimused():
 
 
 def kasud(vastus):
+    """Kasutaja valikute parsimine ja vajalike funktsioonide välja
+    kutsumine.
+    """
     for symbol in vastus:
         if vastus == 'q':
             return 'q'
@@ -36,6 +40,9 @@ def kasud(vastus):
 
 
 def oodatav_eluiga():
+    """Tabelist võetakse vastavalt kasutaja sisesatud parameetritele oodatav
+    elada jäänud aastate arv.
+    """
     print("  Teie sugu:")
     print("  [n] Naine")
     print("  [m] Mees")
@@ -48,6 +55,9 @@ def oodatav_eluiga():
 
 
 def oodatav_eluiga_aastal():
+    """Tabelist võetakse vastavalt kasutaja sisesatud parameetritele oodatav
+    elada jäänud aastate arv.
+    """
     jarjend = aastad("RV045s_mehed.csv")
     print("  Siin saad uurida, et kui sa oleksid oma tänase vanuseni jõudnud")
     print("  aastatel " + jarjend[2] + " - " +
@@ -67,6 +77,9 @@ def oodatav_eluiga_aastal():
 
 
 def graafik():
+    """Joonistatkse graafik, kus on näha oodatava eluea muutus aastatel 1989 -
+    2017.
+    """
     print("  Soovitav sugu:")
     print("  [n] Naine")
     print("  [m] Mees")
@@ -80,15 +93,12 @@ def graafik():
     print("  Soovitav vanus:")
     vanus = input("  > ")
 
-    # jarjend = aastad("RV045s_mehed.csv")
     tabel = faili_sisselugemine(sugu)
     transponeeritud_andmed = tabel.T
     plot.xlabel("Aastatel")
     plot.ylabel("Oodatav aastate arv")
     plot.title(vanus + " aastase " + sugu_kaandes +
                " oodatav elada jäänud aastate arv")
-    # plot.xticks([1989, 1994, 1999, 2000, 2005, 2010, 2015, 2017],
-    #             ['1989', '1994', '1999', '2000', '2005', '2010', '2015', '2017'])
     transponeeritud_andmed["Vanus " + str(vanus)].plot()
     plot.show()
 
@@ -109,19 +119,12 @@ def faili_sisselugemine(sugu):
 
 
 def aastad(failinimi):
+    """Tagastab järjendi tulpade pealkirjadega."""
     fail = open(failinimi, encoding="UTF-8")
     rida = fail.readline()
     jarjend = rida.strip('\n').strip('"').split(';')
     jarjend = [element.strip('"') for element in jarjend]
     return jarjend
-
-
-def viimane_aasta(failinimi):
-    fail = open(failinimi, encoding="UTF-8")
-    rida = fail.readline()
-    jarjend = rida.strip('\n').strip('"').split(';')
-    jarjend = [element.strip('"') for element in jarjend]
-    return str(jarjend[-1])
 
 
 kysimused()

@@ -20,13 +20,27 @@ Programmi käivitades saab valida nelja valiku vahel. Kaks esimest pakuvad
 oodatavat eluiga vastavalt soovitud lähteandmetele, kolmas pakub graafiku
 loomist ja neljas valik sulgeb programmi.
 
-Ülevaadet tööprotsessist, sealhulgas ülevaadet ajakulust
+Ülevaade tööprotsessist, sealhulgas ülevaade ajakulust
 
 Projekti tegemist alustasin disainidokumendi loomisest, kus kirjeldasin ära
-üldidee ja kasuatatavad tabelid. Panin paika kasutajaliidese ning püüdsin
-kirjeldada põhilised funktsioonid.
+üldidee ja kasutatavad tabelid.
+Hinnanguline ajakulu 1 tund.
+Panin paika kasutajaliidese ning püüdsin kirjeldada põhilised funktsioonid.
+Hinnanguline ajakulu 1 tund.
+Programmi kirjutamine ja testimine.
+Hinnanguliselt jagus see nelja päeva peale ja ajakulu kuni 12 tundi.
+Dokumenteerimine
+Hinnanguline ajakulu 1 tund.
 
+Hinnangut oma töö lõpptulemusele (millega saite hästi hakkama ja mis vajab
+arendamist)
+Hästi läks programmi töö jagamine väikemateks funktioonideks ja põhiloogika
+paika panek. Probleemid ja raskused tekkisid "break" kasutamisel ja datafreimist
+info kätte saamisel.
 
-hinnangut oma töö lõpptulemusele (millega saite hästi hakkama ja mis vajab arendamist);
-
-selgitust ja/või näiteid, kuidas programmi osi eraldi ja programmi tervikuna testisite ehk kuidas veendusite, et programm töötab korrektselt.
+Selgitust ja/või näiteid, kuidas programmi osi eraldi ja programmi tervikuna
+testisite ehk kuidas veendusite, et programm töötab korrektselt.
+Iga funktsiooni tegin eraldi *.py failis ja testisin isoleeritult muust
+koodist.
+Kui funktsiooni töötas soovitult, siis tõstsin koodi põhiprogrammi ja käisin
+selles iga kasutajamenüüs pakutud võimaluse läbi.
