@@ -10,13 +10,13 @@ def kysimused():
     print("  OODATAV ELUIGA")
     while (True):
         print("")
-        print("  Tee oma valik:")
-        print("  [1] Teie oodatav eluiga")
-        print("  [2] Milline oleks olnud teie oodatav eluiga olnud aastatel " +
+        print("  Tee valik:")
+        print("  [1] Oodatav eluiga")
+        print("  [2] Milline oleks olnud oodatav eluiga olnud aastatel " +
               jarjend[2] + " - " +
               jarjend[-1])
         print("  [3] Oodatav eluiga läbi aastate graafikul")
-        print("  [q] Soovite lõpetada ja programmi sulgeda")
+        print("  [q] Soov lõpetada ja programm sulgeda")
         vastus = input("  > ")
         kas_lopp = kasud(vastus)
         if kas_lopp == 'q':
@@ -43,11 +43,11 @@ def oodatav_eluiga():
     """Tabelist võetakse vastavalt kasutaja sisesatud parameetritele oodatav
     elada jäänud aastate arv.
     """
-    print("  Teie sugu:")
+    print("  Valige sugu:")
     print("  [n] Naine")
     print("  [m] Mees")
     sugu = input("  > ")
-    print("  Teie vanus:")
+    print("  Sisestage vanus:")
     vanus = input("  > ")
     tabel = faili_sisselugemine(sugu)
     print("  Oodatav elada jäänud aastate arv: ",
@@ -59,17 +59,17 @@ def oodatav_eluiga_aastal():
     elada jäänud aastate arv.
     """
     jarjend = aastad("RV045s_mehed.csv")
-    print("  Siin saad uurida, et kui sa oleksid oma tänase vanuseni jõudnud")
+    print("  Siin saad uurida, et kui oleks tänase vanuseni jõudnud")
     print("  aastatel " + jarjend[2] + " - " +
           jarjend[-1] +
-          ", siis mis oleks sinu oodatav elada jäänud aastate arv.")
-    print("  Teie sugu:")
+          ", siis mis oleks oodatav elada jäänud aastate arv.")
+    print("  Valige sugu:")
     print("  [n] Naine")
     print("  [m] Mees")
     sugu = input("    > ")
-    print("  Teie vanus:")
+    print("  Sisestage vanus:")
     vanus = input("  > ")
-    print("  Mis aastal oleksid oma tänase vanuseni jõudnud?")
+    print("  Mis aastal oleks tänase vanuseni jõudnud?")
     aasta = input("  > ")
     tabel = faili_sisselugemine(sugu)
     print("  Oodatav elada jäänud aastate arv aastal " + aasta + ": ",
@@ -80,7 +80,7 @@ def graafik():
     """Joonistatkse graafik, kus on näha oodatava eluea muutus aastatel 1989 -
     2017.
     """
-    print("  Soovitav sugu:")
+    print("  Valige sugu:")
     print("  [n] Naine")
     print("  [m] Mees")
     sugu = input("  > ")
@@ -90,7 +90,7 @@ def graafik():
     else:
         sugu_kaandes = "naise"
 
-    print("  Soovitav vanus:")
+    print("  Sisestage vanus:")
     vanus = input("  > ")
 
     tabel = faili_sisselugemine(sugu)
